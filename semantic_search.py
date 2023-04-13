@@ -13,11 +13,12 @@ class SemanticSearch:
         self.use = hub.load(
             'https://tfhub.dev/google/universal-sentence-encoder/4')
         self.fitted = False
+        self.n_neighbors = 8
 
-    def fit(self, data, batch=1000, n_neighbors=5):
+    def fit(self, data, batch=1000):
         self.data = data
         self.embeddings = self.get_text_embedding(data, batch=batch)
-        n_neighbors = min(n_neighbors, len(self.embeddings))
+        n_neighbors = min(self.n_neighbors, len(self.embeddings))
         self.nn = NearestNeighbors(n_neighbors=n_neighbors)
         self.nn.fit(self.embeddings)
         self.fitted = True

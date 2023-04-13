@@ -118,3 +118,9 @@ def question_answer(file, question):
     load_recommender(file_name)
 
     return generate_answer(question)
+
+
+def question_answer_loop(file, question):
+    load_recommender(file)
+
+    return generate_answer(question)

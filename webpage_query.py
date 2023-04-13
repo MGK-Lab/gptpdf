@@ -2,11 +2,14 @@ import gradio as gr
 import gptpdf
 import os
 import openai
+import shutil
 
 key_file = "api.key"
 with open(key_file, "r") as f:
     openai.api_key = f.readline().strip()
 
+if os.path.exists("embedded_files"):
+    shutil.rmtree("embedded_files")
 
 title = 'PDF GPT'
 description = """ The returned response cites the page number in square brackets([]) where the information is located."""

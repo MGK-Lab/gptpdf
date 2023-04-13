@@ -1,0 +1,14 @@
+# run: conda env create -f gptpdf_conda_env.yml
+
+name: gptpdf
+channels:
+  - defaults
+dependencies:
+  - tensorflow
+  - tensorflow-hub
+  - scikit-learn
+  - pip
+  - pip:
+    - openai
+    - gradio
+    - PyMuPDF
